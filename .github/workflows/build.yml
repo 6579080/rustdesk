@@ -7,11 +7,18 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout rustdesk (your fork)
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.repository }}
           path: rustdesk
-      
+          
+      - name: Checkout hbb_common (your fork)
+        uses: actions/checkout@v4
+        with:
+          repository: 6579080/hbb_common
+          path: rustdesk/libs/hbb_common
+          
       - name: Setup Rust
         uses: actions-rs/toolchain@v1
         with:
